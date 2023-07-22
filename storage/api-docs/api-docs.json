@@ -1,0 +1,321 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Book API",
+        "description": "Book Collection Management Training API.",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/author": {
+            "get": {
+                "tags": [
+                    "Author"
+                ],
+                "summary": "List all active authors",
+                "description": "Returns a list of all active authors in the system.",
+                "operationId": "f1074eb6efde9152bb5cb26831303c2a",
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of active authors."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Author"
+                ],
+                "summary": "Create a new author",
+                "description": "Creates a new author with the provided data.",
+                "operationId": "c4a5c8a77c624d8e378cfb27b7175bb6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthorRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the newly created author."
+                    }
+                }
+            }
+        },
+        "/api/author/{id}": {
+            "get": {
+                "tags": [
+                    "Author"
+                ],
+                "summary": "Show a specific author",
+                "description": "Returns the details of a specific author.",
+                "operationId": "8523a1a58bce01b39f3906534f30e301",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Author ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the author details."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Author"
+                ],
+                "summary": "Update an author",
+                "description": "Updates an existing author with the provided data.",
+                "operationId": "95f3dc321fe15b0c7f6f4984f80c9b9c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Author ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthorRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the updated author."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Author"
+                ],
+                "summary": "Delete an author",
+                "description": "Deletes an author from the system.",
+                "operationId": "fcd81d33959cfb391e37c5a29129e2b4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Author ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted the author."
+                    }
+                }
+            }
+        },
+        "/api/book": {
+            "get": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "List all books",
+                "description": "Returns a list of all books in the system.",
+                "operationId": "0e75dde625f5fdef923b42b410113da4",
+                "responses": {
+                    "200": {
+                        "description": "Returns a list of books."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Create a new book",
+                "description": "Creates a new book with the provided data.",
+                "operationId": "d186ef540836dc71b8d1342642a1cce5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the newly created book."
+                    }
+                }
+            }
+        },
+        "/api/book/{id}": {
+            "get": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Show a specific book",
+                "description": "Returns the details of a specific book.",
+                "operationId": "c2d58ab5f9eb729975ff3468e0e327ac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Book ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the book details."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Update a book",
+                "description": "Updates an existing book with the provided data.",
+                "operationId": "a0894639dd8663ef8249b56ed6fe561a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Book ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BookRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the updated book."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Book"
+                ],
+                "summary": "Delete a book",
+                "description": "Deletes a book from the system.",
+                "operationId": "e1d27bcf7c73344045c09c19499d956d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Book ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted the book."
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AuthorRequest": {
+                "required": [
+                    "name",
+                    "last_name",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Author's name.",
+                        "type": "string",
+                        "example": "John"
+                    },
+                    "last_name": {
+                        "description": "Author's last name.",
+                        "type": "string",
+                        "example": "Doe"
+                    },
+                    "email": {
+                        "description": "Author's email address.",
+                        "type": "string",
+                        "format": "email",
+                        "example": "john@example.com"
+                    }
+                },
+                "type": "object"
+            },
+            "BookRequest": {
+                "required": [
+                    "name",
+                    "description",
+                    "price",
+                    "idAuthor"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Name of the book.",
+                        "type": "string",
+                        "example": "Book A"
+                    },
+                    "description": {
+                        "description": "Description of the book.",
+                        "type": "string",
+                        "example": "Description of the book."
+                    },
+                    "price": {
+                        "description": "Price of the book.",
+                        "type": "number",
+                        "format": "float",
+                        "example": "29.99"
+                    },
+                    "idAuthor": {
+                        "description": "ID of the book's author.",
+                        "type": "integer",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Author"
+        },
+        {
+            "name": "Author"
+        },
+        {
+            "name": "Author"
+        }
+    ]
+}
