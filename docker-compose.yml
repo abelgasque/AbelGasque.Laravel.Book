@@ -7,3 +7,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
       MYSQL_DATABASE: '${DB_DATABASE}'
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: ${RABBITMQ_HOST}
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_VHOST}
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+    ports:
+      - "5672:5672"
+      - "15672:15672"

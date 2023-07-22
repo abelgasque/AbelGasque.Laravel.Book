@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BookNotificationEvent;
+
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
@@ -35,6 +37,7 @@ class BookController extends Controller
         return response()->json(["success" => true, ...$entities], 200);
     }
 
+
     /**
      * @OA\Post(
      *     tags={"Book"},
@@ -52,7 +55,10 @@ class BookController extends Controller
     {
         $entity = ['book' => Book::create($request->all())];
 
-        if ($entity['book']) {
+        if ($entity['book']) 
+        {
+            $notification = $entity['book']->getCrateNotification();
+            event(new BookNotificationEvent($notification));            
             return response()->json(["success" => true, ...$entity], 200);
         }
 
@@ -111,6 +117,8 @@ class BookController extends Controller
             $entity['book']->fill($request->all());
             $entity['book']->save();
 
+            $notification = $entity['book']->getUpdateNotification();
+            event(new BookNotificationEvent($notification));            
             return response()->json(["success" => true, ...$entity], 200);
         }
 

@@ -12,4 +12,14 @@ class Book extends Model
     {
         return $this->belongsTo(Author::class, 'idAuthor');
     }
+
+    public function getCrateNotification()
+    {
+        return "Create new book: {$this->id}";
+    }
+
+    public function getUpdateNotification()
+    {
+        return "Update new book: {$this->id}";
+    }
 }
